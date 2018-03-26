@@ -29,9 +29,14 @@ export default class SingleAlbum extends React.Component{
                 return (
                   <tr key={song.id}>
                     <td>
-                      <button className="btn btn-default btn-xs">
+                      {
+                      this.props.currentSong.id === song.id
+                      ? <div></div>
+                      :
+                      <button onClick={() => this.props.play(song.id)} className="btn btn-default btn-xs">
                         <span className="glyphicon glyphicon-play"></span>
                       </button>
+                      }
                     </td>
                     <td>{song.name}</td>
                     <td>{song.artists[0].name}</td>
